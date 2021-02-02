@@ -1,6 +1,7 @@
 //primitive types
 let num: number;
-let apples: number = 5;
+let apples: number = 5; //Type annotations
+let pears = 5; //Type inference
 let speed: string = 'fast';
 let hasName: boolean = true;
 let nothingMuch: null = null;
@@ -27,4 +28,10 @@ let car: Car = new Car();
 let point: { x: number; y: number } = {
   x: 10,
   y: 20,
+};
+
+// Function: we declare parameters types and type of return value
+// Full, verbose annotation: First set of () => = describes the types of the parameters and the return value. In other words, its not a function
+const logNumber: (i: number) => void = (i: number) => {
+  console.log(i);
 };
