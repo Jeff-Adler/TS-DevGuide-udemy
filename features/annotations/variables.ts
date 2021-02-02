@@ -35,3 +35,33 @@ let point: { x: number; y: number } = {
 const logNumber: (i: number) => void = (i: number) => {
   console.log(i);
 };
+
+// When to use annotations
+// 1) Function that returns the 'any' type
+const json = '{"x": 10, "y": 20}';
+// this gets inferred to by type any, since it doesn't know what type of value will be returned by JSON.parse.
+// Since it depends on the input string (that is, the json doc), it can't predict this.
+const coordinatesAny = JSON.parse(json);
+const coordinates: { x: number; y: number } = JSON.parse(json);
+
+// 2) When we declare a variable on one line and initialize it later
+let words = ['red', 'green', 'blue'];
+// declare type now to initialize later
+let foundWord: boolean;
+
+for (let i = 0; i < words.length; i++) {
+  if (words[i] === 'green') {
+    foundWord = true;
+  }
+}
+
+// 3) When a type can't be inferred (corner case)
+let numbers = [-10, -1, 12];
+// This is bad code, but this the basic idea: when you have to switch the type of some variable
+let numberAboveZero: boolean | number = false;
+
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    numberAboveZero = numbers[i];
+  }
+}
