@@ -17,3 +17,10 @@ const myCar = carMakers.pop();
 carMakers.map((car: string): string => {
   return car.toUpperCase();
 });
+
+//Flexible Types: infers array of type Data or string
+const importantDates = [new Date(), '2030-10-10'];
+// Permitted:
+importantDates.push('2030-10-10');
+// Prohibited:
+// importantDates.push(100)
