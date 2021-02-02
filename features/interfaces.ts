@@ -61,5 +61,16 @@ const toyota = {
   },
 };
 
+const drink2 = {
+  color: 'brown',
+  carbonated: true,
+  sugar: 40,
+  summary(): string {
+    return `My drink has ${this.sugar} grams of sugar`;
+  },
+};
+
 // this satisfies the condition imposed by Reportable as an argument for the function
 printSummary(toyota);
+// this also satisfies Reportable condition.
+printSummary(drink2);
