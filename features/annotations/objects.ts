@@ -13,6 +13,7 @@ const profile = {
 // For destructuring, we have to explicitly write out the structure of the field in profile that we are referencing
 const { age, name }: { age: number; name: string } = profile;
 
+// Must write out structure of entire nested destructured object
 const {
   coords: { lat, lng },
 }: { coords: { lat: number; lng: number } } = profile;
