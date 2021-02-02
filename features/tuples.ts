@@ -16,7 +16,16 @@ const coke: [string, boolean, number] = ['brown', true, 40];
 // coke[0] = 40;
 // coke[2] = 'brown';
 
-//type aliasing is also useful:
+//Type Aliasing is also useful:
 type Drink = [string, boolean, number];
 const sprite: Drink = ['brown', true, 40];
 const fanta: Drink = ['brown', true, 40];
+
+// nondescript tuple:
+const carSpecs: [number, number] = [400, 3354];
+
+// far more descriptive:
+const carStats = {
+  horsepower: 400,
+  weight: 3354,
+};
