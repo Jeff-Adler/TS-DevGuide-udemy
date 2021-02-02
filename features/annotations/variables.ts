@@ -36,7 +36,7 @@ const logNumber: (i: number) => void = (i: number) => {
   console.log(i);
 };
 
-// When to use annotations
+// When to use annotations for variables
 // 1) Function that returns the 'any' type
 const json = '{"x": 10, "y": 20}';
 // this gets inferred to by type any, since it doesn't know what type of value will be returned by JSON.parse.
