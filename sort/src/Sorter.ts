@@ -8,7 +8,7 @@ interface Sortable {
 
 export class Sorter {
   // This will declare collection field AND initialize it to value passed at New
-  constructor(public collection: NumbersCollection) {}
+  constructor(public collection: Sortable) {}
 
   sort(): void {
     const { length } = this.collection;
