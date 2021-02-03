@@ -116216,8 +116216,42 @@ function () {
 }();
 
 exports.User = User;
-},{"faker":"node_modules/faker/index.js"}],"src/CustomMap.ts":[function(require,module,exports) {
+},{"faker":"node_modules/faker/index.js"}],"src/Company.ts":[function(require,module,exports) {
 "use strict";
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Company = void 0;
+
+var faker_1 = __importDefault(require("faker"));
+
+var Company =
+/** @class */
+function () {
+  function Company() {
+    this.companyName = faker_1.default.company.companyName();
+    this.catchPhrase = faker_1.default.company.catchPhrase();
+    this.location = {
+      lat: parseFloat(faker_1.default.address.latitude()),
+      lng: parseFloat(faker_1.default.address.latitude())
+    };
+  }
+
+  return Company;
+}();
+
+exports.Company = Company;
+},{"faker":"node_modules/faker/index.js"}],"src/CustomMap.ts":[function(require,module,exports) {
+"use strict"; // Only need for bad methods at the bottom
+// import { User } from './User';
+// import { Company } from './Company';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -116236,19 +116270,26 @@ function () {
         lng: 0
       }
     });
-  }
+  } // This allows us to take any object and add a marker, as long as it fulfills interface Mappable
 
-  CustomMap.prototype.addUserMarker = function (user) {
-    new google.maps.Marker({
+
+  CustomMap.prototype.addMarker = function (mappable) {
+    var _this = this;
+
+    var marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: user.location.lat,
-        lng: user.location.lng
+        lat: mappable.location.lat,
+        lng: mappable.location.lng
       }
     });
+    marker.addListener('click', function () {
+      var infoWindow = new google.maps.InfoWindow({
+        content: 'Hi there!'
+      });
+      infoWindow.open(_this.googleMap, marker);
+    });
   };
-
-  CustomMap.prototype.addCompanyMarker = function (company) {};
 
   return CustomMap;
 }();
@@ -116263,12 +116304,16 @@ Object.defineProperty(exports, "__esModule", {
 
 var User_1 = require("./User");
 
+var Company_1 = require("./Company");
+
 var CustomMap_1 = require("./CustomMap");
 
 var user = new User_1.User();
+var company = new Company_1.Company();
 var customMap = new CustomMap_1.CustomMap('map');
-customMap.addUserMarker(user);
-},{"./User":"src/User.ts","./CustomMap":"src/CustomMap.ts"}],"../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+customMap.addMarker(user);
+customMap.addMarker(company);
+},{"./User":"src/User.ts","./Company":"src/Company.ts","./CustomMap":"src/CustomMap.ts"}],"../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
