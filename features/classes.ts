@@ -19,6 +19,10 @@ class Vehicle {
 }
 
 class Car extends Vehicle {
+  constructor(public year: number, color: string) {
+    super(color);
+  }
+
   // overrides drive() from vehicle
   public drive(): void {
     console.log('vroom');
@@ -38,6 +42,6 @@ const vehicle = new Vehicle('orange');
 vehicle.drive();
 vehicle.honk();
 
-const car = new Car('red');
+const car = new Car(2009, 'red');
 car.drive();
 car.honk();
