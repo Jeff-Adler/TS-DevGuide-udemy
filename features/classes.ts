@@ -1,4 +1,14 @@
 class Vehicle {
+  // fields:
+  color: string;
+  // To initialize to default value:
+  wheelCount: number = 4;
+
+  //Can also declare fields in the body of the constructor (see: make)
+  constructor(color: string, public make = 'chevy') {
+    this.color = color;
+  }
+
   public drive(): void {
     console.log('chugga chugga');
   }
@@ -24,10 +34,10 @@ class Car extends Vehicle {
   }
 }
 
-const vehicle = new Vehicle();
+const vehicle = new Vehicle('orange');
 vehicle.drive();
 vehicle.honk();
 
-const car = new Car();
+const car = new Car('red');
 car.drive();
 car.honk();
