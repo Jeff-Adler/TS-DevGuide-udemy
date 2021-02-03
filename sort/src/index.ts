@@ -18,6 +18,9 @@ class Sorter {
         }
       }
     }
+
+    if (typeof this.collection === 'string') {
+    }
   }
 }
 
