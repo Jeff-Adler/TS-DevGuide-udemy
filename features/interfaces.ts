@@ -40,7 +40,7 @@ const newCivic = {
   },
 };
 
-printVehicle(newCivic);
+// printVehicle(newCivic);
 
 //could expand interface to define the minimum necessary for any object that needs a summary
 interface Reportable {
