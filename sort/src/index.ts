@@ -1,17 +1,20 @@
 class Sorter {
   // This will declare collection field AND initialize it to value passed at New
-  constructor(public collection: number[]) {}
+  constructor(public collection: number[] | string) {}
 
   sort(): void {
     const { length } = this.collection;
 
-    // Bubble Sort Algorithm
-    for (let i = 0; i < length; i++) {
-      for (let j = 0; j < length - i - 1; j++) {
-        if (this.collection[j] > this.collection[j + 1]) {
-          const leftHand = this.collection[j];
-          this.collection[j] = this.collection[j + 1];
-          this.collection[j + 1] = leftHand;
+    // Type guard allows us to run array-specific functions even though collection is of type Array | string
+    if (this.collection instanceof Array) {
+      // Bubble Sort Algorithm
+      for (let i = 0; i < length; i++) {
+        for (let j = 0; j < length - i - 1; j++) {
+          if (this.collection[j] > this.collection[j + 1]) {
+            const leftHand = this.collection[j];
+            this.collection[j] = this.collection[j + 1];
+            this.collection[j + 1] = leftHand;
+          }
         }
       }
     }
