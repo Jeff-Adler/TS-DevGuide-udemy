@@ -116198,7 +116198,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.User = void 0;
 
-var faker_1 = __importDefault(require("faker"));
+var faker_1 = __importDefault(require("faker")); // Implements keyword ensures that User conforms to Mappable
+
 
 var User =
 /** @class */
@@ -116234,7 +116235,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Company = void 0;
 
-var faker_1 = __importDefault(require("faker"));
+var faker_1 = __importDefault(require("faker")); // Implements keyword ensures that Company conforms to Mappable
+
 
 var Company =
 /** @class */

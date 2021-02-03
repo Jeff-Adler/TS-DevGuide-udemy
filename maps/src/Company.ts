@@ -1,6 +1,8 @@
-import faker, { fake } from 'faker';
+import faker from 'faker';
+import { Mappable } from './CustomMap';
 
-export class Company {
+// Implements keyword ensures that Company conforms to Mappable
+export class Company implements Mappable {
   companyName: string;
   catchPhrase: string;
   location: {

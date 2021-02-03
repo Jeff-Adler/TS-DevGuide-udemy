@@ -1,6 +1,8 @@
 import faker from 'faker';
+import { Mappable } from './CustomMap';
 
-export class User {
+// Implements keyword ensures that User conforms to Mappable
+export class User implements Mappable {
   name: string;
   // Declaring object does not initialize the fields when new object is created
   location: {
