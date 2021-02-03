@@ -1,11 +1,19 @@
 import faker from 'faker';
 
-class User {
+export class User {
   name: string;
+  // Declaring object does not initialize the fields when new object is created
   location: {
     lat: number;
     lng: number;
   };
 
-  constructor() {}
+  constructor() {
+    this.name = faker.name.firstName();
+    // Location field is initialized here, not in fields above
+    this.location = {
+      lat: parseFloat(faker.address.latitude()),
+      lng: parseFloat(faker.address.longitude()),
+    };
+  }
 }
