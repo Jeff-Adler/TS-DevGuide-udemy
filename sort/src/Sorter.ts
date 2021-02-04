@@ -6,17 +6,19 @@ interface Sortable {
   swap(leftIndex: number, rightIndex: number): void;
 }
 
-export class Sorter {
-  // This will declare collection field AND initialize it to value passed at New
-  constructor(public collection: Sortable) {}
+export abstract class Sorter {
+  abstract length: number;
+  abstract compare(leftIndex: number, rightIndex: number): boolean;
+  abstract swap(leftIndex: number, rightIndex: number): void;
 
+  // Sort references abstract fields and classes that don't exist, but all functions that inherit Sorter will implement
   sort(): void {
-    const { length } = this.collection;
+    const { length } = this;
 
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
-        if (this.collection.compare(j, j + 1)) {
-          this.collection.swap(j, j + 1);
+        if (this.compare(j, j + 1)) {
+          this.swap(j, j + 1);
         }
       }
     }
