@@ -6,6 +6,7 @@ class Node {
   constructor(public data: number) {}
 }
 
+// Don't have to call super(), because LinkedList doesn't have a constructor
 export class LinkedList extends Sorter {
   head: Node | null = null;
 
