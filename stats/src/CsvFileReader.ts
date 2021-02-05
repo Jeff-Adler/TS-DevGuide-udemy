@@ -1,5 +1,6 @@
 import fs from 'fs';
 
+//could implement dataReader from MatchReader
 export class CsvFileReader {
   data: string[][] = [];
 

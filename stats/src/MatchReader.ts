@@ -10,8 +10,10 @@ interface DataReader {
 
 export class MatchReader {
   matches: MatchData[] = [];
+  //only accepts an object that conforms to DataReader. CsvFileReader does that. we could imagine a class like APIReader that would do the same
   constructor(public reader: DataReader) {}
 
+  //since reader is of type DataReader, we know it has a read() method and and datatype of string[][]
   load(): void {
     this.reader.read();
     this.matches = this.reader.data.map(
